@@ -8,7 +8,6 @@ def pascal_triangle(n):
     """
     triangle = []
 
-    # return (trianlgle if n <= 0)
     if n <= 0:
         return triangle
     for i in range(n):
