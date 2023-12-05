@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+'''This file contains a function that determines if all of the boxes can be opened'''
+
+
 def canUnlockAll(boxes):
+    '''Lockboxes'''
     keys = [*boxes[0]]
     i = 0
     while (i < len(keys)):
