@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-'''This file contains a function that determines if all of the boxes can be opened'''
+'''A module for working with lockboxes.
+'''
 
 
 def canUnlockAll(boxes):
-    '''Lockboxes'''
-    keys = [*boxes[0]]
-    i = 0
-    while (i < len(keys)):
-        for j in range(len(boxes[keys[i]])):
-            if boxes[keys[i]][j] not in keys and boxes[keys[i]][j] != 0:
-                keys.append(boxes[keys[i]][j])
-        i += 1
-
-    return len(keys) == len(boxes) - 1
+    '''Checks if all the boxes in a list of boxes containing the keys
+    (indices) to other boxes can be unlocked given that the first
+    box is unlocked.
+    '''
+    n = len(boxes)
+    seen_boxes = set([0])
+    unseen_boxes = set(boxes[0]).difference(set([0]))
+    while len(unseen_boxes) > 0:
+        boxIdx = unseen_boxes.pop()
+        if not boxIdx or boxIdx >= n or boxIdx < 0:
+            continue
+        if boxIdx not in seen_boxes:
+            unseen_boxes = unseen_boxes.union(boxes[boxIdx])
+            seen_boxes.add(boxIdx)
+    return n == len(seen_boxes)
