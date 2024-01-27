@@ -1,2 +1,2 @@
 # alx-interview
-A collection of pyhton interview questions (resolved)
+A collection of pyhton interview questions with answers
