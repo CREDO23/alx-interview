@@ -18,9 +18,7 @@ def makeChange(coins, total):
         if coin_idx >= n:
             return -1
         if rem - sorted_coins[coin_idx] >= 0:
-
             rem -= sorted_coins[coin_idx]
-            
             coins_count += 1
         else:
             coin_idx += 1
